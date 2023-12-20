@@ -845,13 +845,14 @@ static uint32_t score_strings(const char *s1,
 
   //  printf ("s1len: %"PRIu32"  s2len: %"PRIu32"\n", (uint32_t)s1len, (uint32_t)s2len);
 
-  // when the blocksize is small we don't want to exaggerate the match size
-  if (block_size >= (99 + ROLLING_WINDOW) / ROLLING_WINDOW * MIN_BLOCKSIZE)
-    return score;
-  if (score > block_size/MIN_BLOCKSIZE * MIN(s1len, s2len))
-  {
-    score = block_size/MIN_BLOCKSIZE * MIN(s1len, s2len);
-  }
+// Mohamed changed: don't dampen score based on block size.
+//  // when the blocksize is small we don't want to exaggerate the match size
+//  if (block_size >= (99 + ROLLING_WINDOW) / ROLLING_WINDOW * MIN_BLOCKSIZE)
+//    return score;
+//  if (score > block_size/MIN_BLOCKSIZE * MIN(s1len, s2len))
+//  {
+//    score = block_size/MIN_BLOCKSIZE * MIN(s1len, s2len);
+//  }
   return score;
 }
 
