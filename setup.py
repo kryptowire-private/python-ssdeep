@@ -20,9 +20,9 @@ base_dir = os.path.dirname(__file__)
 src_dir = os.path.join(base_dir, "src")
 # sys.path.insert(0, base_dir)
 
-use_system_lib = True
-if os.environ.get("BUILD_LIB") == "1":
-    use_system_lib = False
+use_system_lib = False
+# if os.environ.get("BUILD_LIB") == "1":
+#     use_system_lib = False
 
 
 class BuildClib(_build_clib):
